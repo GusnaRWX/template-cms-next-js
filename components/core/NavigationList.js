@@ -6,27 +6,27 @@ const NavigationList = {
     name: 'Input',
     list: [
       {
-        path: '/component-1',
+        path: '/features/input/textfield',
         name: 'TextField',
         icon: <Code />
       },
       {
-        path: '/component-2',
+        path: '/features/input/select',
         name: 'Select',
         icon: <Code />
       },
       {
-        path: '/component-3',
+        path: '/features/input/button',
         name: 'Button',
         icon: <Code />
       },
       {
-        path: '/component-4',
+        path: '/features/input/radio',
         name: 'Radio Group',
         icon: <Code />
       },
       {
-        path: '/component-5',
+        path: '/features/input/checkbox',
         name: 'CheckBox',
         icon: <Code />
       }

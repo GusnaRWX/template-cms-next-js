@@ -141,6 +141,7 @@ const initialStateTheme = {
         font-weight: 300;
         src: url(${EncodeTextThin}) format('truetype')
        }
+
       `
     },
     MuiListItemIcon: {

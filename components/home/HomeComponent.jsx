@@ -12,13 +12,16 @@ import StatisticPie from '../_shared/StatisticPie'
 const useStyles = makeStyles({
   paperWrapper: {
     padding: '1rem',
-    backgroundColor: 'rgba(9,24,39, .9)',
-    backdrop: 'blur(5px)',
-    color: '#fff',
+    backgroundColor: '#091827 !important',
+    color: '#FFFFFF',
     height: '320px'
   },
   titleLabel: {
-    margin: 0
+    margin: 0,
+    color: '#FFFFFF'
+  },
+  contentLabel: {
+    color: '#FFFFFF'
   },
   imageContainer: {
     width: '100%',

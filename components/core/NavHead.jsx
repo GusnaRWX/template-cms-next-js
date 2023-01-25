@@ -131,7 +131,7 @@ function NavHead ({ open, onDrawerOpen }) {
                 color: '#fff',
                 '&.MuiInputBase-root': {
                   '&.Mui-focused': {
-                    borderBottom: '1px solid #67b2ff'
+                    borderBottom: '1px solid #8D72E1'
                   }
                 }
               }}

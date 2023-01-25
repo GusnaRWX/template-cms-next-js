@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText'
 import NavigationList from './NavigationList'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 import { makeStyles } from '@mui/styles'
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles({
   listItemWrapper: {
@@ -34,8 +35,23 @@ const useStyles = makeStyles({
   },
   titleWrapper: {
     marginLeft: '1.5rem',
-    color: '#67b2ff',
+    color: '#8D72E1 !important',
     fontWeight: 'bold'
+  },
+  drawerContainer: {
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    '&::-webkit-scrollbar': {
+      width: '10px'
+    },
+    '&::-webkit-scrollbar-track': {
+      background: 'transparent',
+      borderRadius: '10px'
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: 'transparent',
+      borderRadius: '10px'
+    }
   }
 })
 
@@ -83,6 +99,7 @@ const DrawerWrapper = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
     flexShrink: 0,
     backgroundColor: 'rgba(9, 24, 39, 1)',
     whiteSpace: 'nowrap',
+    overflowX: 'hidden',
     boxSizing: 'border-box',
     ...(open && {
       ...openedMixin(theme),
@@ -102,6 +119,13 @@ function Drawer ({
 }) {
   const theme = useTheme()
   const classes = useStyles()
+  const router = useRouter()
+
+  const pathName = router.pathname
+
+  const handleChangePage = (path) => {
+    router.push(path)
+  }
   return (
     <DrawerWrapper variant="permanent" open={open}>
       <DrawerHeader>
@@ -119,7 +143,7 @@ function Drawer ({
           <h6 style={{ margin: 0 }}>Admin</h6>
         </div>
       </div>
-      <div style={{ overflowY: 'auto' }}>
+      <div className={classes.drawerContainer}>
         <div className={classes.titleWrapper}>
           <p style={{ margin: 0 }}>{open ? NavigationList.listInput.name : ''}</p>
         </div>
@@ -128,10 +152,13 @@ function Drawer ({
             NavigationList.listInput.list.map((item, index) => (
               <ListItemButton
                 key={index}
+                onClick={() => { handleChangePage(item.path) }}
+                selected={pathName === item.path}
                 sx={{
                   '&:hover': {
                     backgroundColor: '#1d293a'
-                  }
+                  },
+                  backgroundColor: pathName === item.path ? '#1d293a !important' : '#091827 !important'
                 }}
               >
                 <ListItemIcon
